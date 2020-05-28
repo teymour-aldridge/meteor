@@ -302,7 +302,6 @@ ${displayNameForPlatform(platform)}`, async () => {
     options.push('--buildConfig', this.buildJsonPath);
     options.push(isDevice ? '--device' : '--emulator');
 
-    let env = this.defaultEnvWithPathsAdded(...extraPaths);
     const commandOptions = {
       ...this.defaultOptions,
       platforms: [platform],
@@ -737,7 +736,6 @@ perform cordova plugins reinstall`);
     // @scope/plugin@1.0.0 => { 'com.cordova.plugin': 'scope/plugin' }
     const installed = this.listInstalledPluginVersions(true);
     const installedPluginsNames = Object.keys(installed);
-    const installedPluginsVersions = Object.values(installed);
     const missingPlugins = {};
 
     Object.keys(requiredPlugins).filter(plugin => {
